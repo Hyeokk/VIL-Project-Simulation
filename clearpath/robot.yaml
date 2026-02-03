@@ -94,7 +94,18 @@ sensors:
           depth_module.profile: 640,480,30
           pointcloud.enable: true
   gps: []
-  imu: []
+  imu:
+    - model: microstrain_imu
+      urdf_enabled: true
+      launch_enabled: true
+      parent: base_link
+      xyz: [0.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+      ros_parameters:
+        microstrain_inertial_driver:
+          imu_frame_id: imu_0_link
+          port: /dev/microstrain_main
+          use_enu_frame: true
   lidar2d:
     - model: hokuyo_ust
       urdf_enabled: true
