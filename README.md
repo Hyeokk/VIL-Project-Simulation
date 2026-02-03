@@ -28,6 +28,19 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
+## Robot Configuration
+
+Before launching the simulation, you must set up the robot configuration.
+
+1. Create a `clearpath` directory in your home folder:
+   ```bash
+   mkdir -p ~/clearpath
+   ```
+2. Place your `robot.yaml` file inside this directory.
+   - This project uses the **sample A200 robot.yaml** provided by Clearpath.
+   - You can download the sample configuration from the [Clearpath Config Repository](https://github.com/clearpathrobotics/clearpath_config/tree/humble/clearpath_config/sample/a200).
+
+
 ## Usage
 
 ### Basic Simulation Launch
@@ -53,3 +66,4 @@ ros2 launch clearpath_gz simulation.launch.py command:=...
 
 ## References
 - Original Repository: [https://github.com/clearpathrobotics/clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator)
+- Custom World: [https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git](https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git)
