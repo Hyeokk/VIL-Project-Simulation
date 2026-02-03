@@ -1,6 +1,8 @@
 
 # Clearpath Simulator (Customized)
 
+**Environment:** Ubuntu 22.04 LTS | ROS 2 Humble
+
 This repository is based on the `humble` branch of the [Clearpath Robotics simulation repository](https://github.com/clearpathrobotics/clearpath_simulator) and has been customized to fit specific requirements.
 
 ## Key Modifications
