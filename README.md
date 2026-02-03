@@ -32,15 +32,15 @@ source install/setup.bash
 
 ## Robot Configuration
 
-Before launching the simulation, you must set up the robot configuration.
+This repository is configured to manage the robot configuration (`robot.yaml`) internally.
 
-1. Create a `clearpath` directory in your home folder:
-   ```bash
-   mkdir -p ~/clearpath
-   ```
-2. Place your `robot.yaml` file inside this directory.
+1. Ensure your `robot.yaml` file is located in the `clearpath/` directory:
+   - Path: `clearpath/robot.yaml`
    - This project uses the **sample A200 robot.yaml** provided by Clearpath.
    - You can download the sample configuration from the [Clearpath Config Repository](https://github.com/clearpathrobotics/clearpath_config/tree/humble/clearpath_config/sample/a200).
+
+2. **Launch Configuration:** 
+   The `simulation.launch.py` file has been updated to automatically use this `clearpath` directory as the default `setup_path`. You do not need to manually specify the path or create a `~/clearpath` directory in your home folder.
 
 
 ## Usage

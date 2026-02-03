@@ -21,7 +21,19 @@ from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import EnvironmentVariable, LaunchConfiguration, PathJoinSubstitution
+import os
 
+
+
+# Calculate default setup_path relative to this launch file
+# This assumes the directory structure:
+# clearpath_simulator/
+#   clearpath_gz/launch/simulation.launch.py
+#   clearpath/
+launch_dir = os.path.dirname(os.path.realpath(__file__))
+# Go up two levels: launch -> clearpath_gz -> clearpath_simulator
+repo_dir = os.path.abspath(os.path.join(launch_dir, '..', '..'))
+default_setup_path = os.path.join(repo_dir, 'clearpath/')
 
 ARGUMENTS = [
     DeclareLaunchArgument('rviz', default_value='false',
@@ -29,8 +41,9 @@ ARGUMENTS = [
     DeclareLaunchArgument('world', default_value='warehouse',
                           description='Gazebo World'),
     DeclareLaunchArgument('setup_path',
-                          default_value=[EnvironmentVariable('HOME'), '/clearpath/'],
+                          default_value=default_setup_path,
                           description='Clearpath setup path'),
+
     DeclareLaunchArgument('use_sim_time', default_value='true',
                           choices=['true', 'false'],
                           description='use_sim_time'),

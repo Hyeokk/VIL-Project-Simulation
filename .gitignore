@@ -2,3 +2,11 @@
 
 build/
 devel/
+
+clearpath/launch/
+clearpath/platform/
+clearpath/sensors/
+clearpath/manipulators/
+clearpath/robot.srdf
+clearpath/robot.srdf.xacro
+clearpath/robot.urdf.xacro
