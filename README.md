@@ -15,7 +15,7 @@ Resolved an issue where resources (meshes, etc.) for the `solar_farm` world were
 - **Launch Files:** Added environment variable setup to ensure Gazebo correctly locates resources.
 
 ### 3. Additional Worlds
-- Added `project.sdf` and `inspection_baseline.sdf` worlds, contributed by graduate intern **Kang Sun-hyeok** ([Repository](https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git)).
+- Added `project.sdf` and `inspection_baseline.sdf` worlds, contributed by graduate intern [Kang Soon-hyuk GitHub](https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git).
 
 
 ## Installation and Build
