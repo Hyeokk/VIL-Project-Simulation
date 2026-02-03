@@ -1,40 +1,49 @@
-# clearpath_simulator
 
-## Setup
+# Clearpath Simulator (Customized)
 
-Prerequisites:
-  - Install [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+This repository is based on the `humble` branch of the [Clearpath Robotics simulation repository](https://github.com/clearpathrobotics/clearpath_simulator) and has been customized to fit specific requirements.
 
-### Ignition Fortress
+## Key Modifications
 
-```
-sudo apt-get update && sudo apt-get install wget
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-sudo apt-get update && sudo apt-get install ignition-fortress
-```
+### 1. Fix: Solar Farm World Resource Loading
+Resolved an issue where resources (meshes, etc.) for the `solar_farm` world were not found in the ROS 2 Humble environment.
+- **`clearpath_gz/CMakeLists.txt`:** Updated to ensure `meshes` and `geotif` directories are installed during the build process.
+- **`clearpath_gz/launch/gz_sim.launch.py`:** Updated to explicitly add the `meshes` path to the `IGN_GAZEBO_RESOURCE_PATH` environment variable.
 
-### Workspace
+### 2. Configuration Improvements
+- **`CMakeLists.txt`:** Added missing installation paths required for the Humble environment.
+- **Launch Files:** Added environment variable setup to ensure Gazebo correctly locates resources.
 
-```
-mkdir ~/clearpath_ws/src -p
-cd ~/clearpath_ws/src
-git clone https://github.com/clearpathrobotics/clearpath_simulator.git
+## Installation and Build
+
+To build this package, run the following commands:
+
+```bash
 cd ~/clearpath_ws
-rosdep install -r --from-paths src -i -y
-colcon build --symlink-install
+colcon build --packages-select clearpath_gz --symlink-install
+source install/setup.bash
 ```
 
-### Setup path
+## Usage
 
-```
-mkdir ~/clearpath
-```
+### Basic Simulation Launch
+To launch the simulation with the default settings:
 
-Copy your `robot.yaml` into `~/clearpath`
-
-## Launch
-
-```
+```bash
 ros2 launch clearpath_gz simulation.launch.py
 ```
+
+### Launching the Solar Farm World
+```bash
+ros2 launch clearpath_gz simulation.launch.py world:=solar_farm
+```
+
+### Changing the Vehicle Control Topic (Optional)
+To change the default control topic (`/a200_0000/cmd_vel`) to a custom topic name, use the remapping option:
+
+```bash
+ros2 launch clearpath_gz simulation.launch.py --remap /a200_0000/cmd_vel:=/my_topic/cmd_vel
+```
+
+## References
+- Original Repository: [https://github.com/clearpathrobotics/clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator)
