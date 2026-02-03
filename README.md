@@ -14,13 +14,17 @@ Resolved an issue where resources (meshes, etc.) for the `solar_farm` world were
 - **`CMakeLists.txt`:** Added missing installation paths required for the Humble environment.
 - **Launch Files:** Added environment variable setup to ensure Gazebo correctly locates resources.
 
+### 3. Additional Worlds
+- Added `project.sdf` and `inspection_baseline.sdf` worlds, contributed by graduate intern **Kang Sun-hyeok** ([Repository](https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git)).
+
+
 ## Installation and Build
 
 To build this package, run the following commands:
 
 ```bash
 cd ~/clearpath_ws
-colcon build --packages-select clearpath_gz --symlink-install
+colcon build --symlink-install
 source install/setup.bash
 ```
 
@@ -38,12 +42,14 @@ ros2 launch clearpath_gz simulation.launch.py
 ros2 launch clearpath_gz simulation.launch.py world:=solar_farm
 ```
 
-### Changing the Vehicle Control Topic (Optional)
-To change the default control topic (`/a200_0000/cmd_vel`) to a custom topic name, use the remapping option:
+### Running on CPU (Software Rendering)
+If you are running the simulation on a machine without a dedicated GPU or experiencing rendering issues, export the following environment variable before launching:
 
 ```bash
-ros2 launch clearpath_gz simulation.launch.py --remap /a200_0000/cmd_vel:=/my_topic/cmd_vel
+export LIBGL_ALWAYS_SOFTWARE=1
+ros2 launch clearpath_gz simulation.launch.py command:=...
 ```
+
 
 ## References
 - Original Repository: [https://github.com/clearpathrobotics/clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator)
