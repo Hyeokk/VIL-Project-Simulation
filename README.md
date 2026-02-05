@@ -34,7 +34,7 @@ Go to your ROS 2 workspace `src` directory and clone this repository.
 
 ```bash
 cd ~/<your_workspace>/src
-git clone <repository_url> clearpath_simulator
+git clone https://github.com/Hyeokk/VIL-Project-Simulation.git clearpath_simulator
 ```
 
 ### 2. Build the Package
