@@ -19,6 +19,13 @@ Resolved an issue where resources (meshes, etc.) for the `solar_farm` world were
 ### 3. Additional Worlds
 - Added `project.sdf` and `project_baseline.sdf` worlds, contributed by [Kang Soon-hyuk](https://github.com/Kangsoonhyuk/FASTLIO-Offroad-Sim.git).
 
+### 4. Robot Description & Physics Tuning
+- **Custom URDF:** Implemented `urdf/custom_a200.urdf.xacro` to include `robot.yaml` sensors (LiDAR, Camera, IMU) and customized physical properties.
+- **Speed Tuning:** 
+  - **URDF Limits:** Increased velocity interface limits from `+/- 1.0` to `+/- 10.0` in `a200.urdf.xacro` to prevent hardware layer throttling.
+  - **Controller Config:** Increased `max_velocity` in `control.yaml` to `20.0` m/s.
+  - **Wheel Slip:** Set lateral and longitudinal slip compliance to `0.0` to maximize traction.
+- **Gazebo GUI Note:** The "Key Publisher" plugin in Gazebo defaults to a low speed (often ~0.5) on every launch. **You must manually set the "Linear" value to `5.0` or higher in the GUI** to move at high speeds.
 
 ## Installation and Build
 

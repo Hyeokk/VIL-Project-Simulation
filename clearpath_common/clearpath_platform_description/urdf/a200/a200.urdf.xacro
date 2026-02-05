@@ -107,26 +107,26 @@
     <gazebo>
       <plugin filename="libignition-gazebo-wheel-slip-system.so" name="ignition::gazebo::systems::WheelSlip">
         <wheel link_name="front_left_wheel">
-          <slip_compliance_lateral>1.0</slip_compliance_lateral>
-          <slip_compliance_longitudinal>1.0</slip_compliance_longitudinal>
+          <slip_compliance_lateral>0.0</slip_compliance_lateral>
+          <slip_compliance_longitudinal>0.0</slip_compliance_longitudinal>
           <wheel_normal_force>113</wheel_normal_force>
           <wheel_radius>${wheel_radius}</wheel_radius>
         </wheel>
         <wheel link_name="front_right_wheel">
-          <slip_compliance_lateral>1.0</slip_compliance_lateral>
-          <slip_compliance_longitudinal>1.0</slip_compliance_longitudinal>
+          <slip_compliance_lateral>0.0</slip_compliance_lateral>
+          <slip_compliance_longitudinal>0.0</slip_compliance_longitudinal>
           <wheel_normal_force>113</wheel_normal_force>
           <wheel_radius>${wheel_radius}</wheel_radius>
         </wheel>
         <wheel link_name="rear_left_wheel">
-          <slip_compliance_lateral>1.0</slip_compliance_lateral>
-          <slip_compliance_longitudinal>1.0</slip_compliance_longitudinal>
+          <slip_compliance_lateral>0.0</slip_compliance_lateral>
+          <slip_compliance_longitudinal>0.0</slip_compliance_longitudinal>
           <wheel_normal_force>113</wheel_normal_force>
           <wheel_radius>${wheel_radius}</wheel_radius>
         </wheel>
         <wheel link_name="rear_right_wheel">
-          <slip_compliance_lateral>1.0</slip_compliance_lateral>
-          <slip_compliance_longitudinal>1.0</slip_compliance_longitudinal>
+          <slip_compliance_lateral>0.0</slip_compliance_lateral>
+          <slip_compliance_longitudinal>0.0</slip_compliance_longitudinal>
           <wheel_normal_force>113</wheel_normal_force>
           <wheel_radius>${wheel_radius}</wheel_radius>
         </wheel>
@@ -181,32 +181,32 @@
         </hardware>
         <joint name="front_left_wheel_joint">
           <command_interface name="velocity">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-10</param>
+            <param name="max">10</param>
           </command_interface>
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
         <joint name="rear_left_wheel_joint">
           <command_interface name="velocity">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-10</param>
+            <param name="max">10</param>
           </command_interface>
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
         <joint name="front_right_wheel_joint">
           <command_interface name="velocity">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-10</param>
+            <param name="max">10</param>
           </command_interface>
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
         <joint name="rear_right_wheel_joint">
           <command_interface name="velocity">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-10</param>
+            <param name="max">10</param>
           </command_interface>
           <state_interface name="position"/>
           <state_interface name="velocity"/>
