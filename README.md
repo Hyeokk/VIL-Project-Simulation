@@ -29,10 +29,19 @@ Resolved an issue where resources (meshes, etc.) for the `solar_farm` world were
 
 ## Installation and Build
 
-To build this package, run the following commands:
+### 1. Clone the Repository
+Go to your ROS 2 workspace `src` directory and clone this repository.
 
 ```bash
-cd ~/clearpath_ws
+cd ~/<your_workspace>/src
+git clone <repository_url> clearpath_simulator
+```
+
+### 2. Build the Package
+Return to the workspace root and build:
+
+```bash
+cd ~/<your_workspace>
 colcon build --symlink-install
 source install/setup.bash
 ```
