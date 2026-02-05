@@ -52,16 +52,29 @@ This repository is configured to manage the robot configuration (`robot.yaml`) i
 
 ## Usage
 
-### Basic Simulation Launch
-To launch the simulation with the default settings:
+### 1. Standard Launch (Default URDF)
+Uses the auto-generated description from the standard `robot.yaml`.
+**Note:** Physical properties (speed, friction) are set to default values.
 
 ```bash
-ros2 launch clearpath_gz simulation.launch.py
+ros2 launch clearpath_gz simulation.launch.py world:=project
 ```
 
-### Launching the Solar Farm World
+### 2. Custom Launch (High Speed & Sensors)
+**Recommended for development.**
+Uses the customized URDF (`custom_a200.urdf.xacro`) which includes:
+- All sensors (LiDAR, Camera, IMU)
+- Tuned physical properties (Higher speed limit, Zero wheel slip)
+
 ```bash
-ros2 launch clearpath_gz simulation.launch.py world:=solar_farm
+ros2 launch clearpath_gz simulation.launch.py world:=project use_auto_generated:=false
+```
+
+### 3. Launching Specific Worlds
+To launch the `solar_farm` world with the custom settings:
+
+```bash
+ros2 launch clearpath_gz simulation.launch.py world:=solar_farm use_auto_generated:=false
 ```
 
 ### Running on CPU (Software Rendering)
