@@ -64,6 +64,7 @@ This repository is configured to manage the robot configuration (`robot.yaml`) i
 ### 1. Standard Launch (Default URDF)
 Uses the auto-generated description from the standard `robot.yaml`.
 **Note:** Physical properties (speed, friction) are set to default values.
+**Important:** You must execute this command at least once initially.
 
 ```bash
 ros2 launch clearpath_gz simulation.launch.py world:=project
